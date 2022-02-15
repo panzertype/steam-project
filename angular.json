@@ -103,6 +103,16 @@
             ],
             "scripts": []
           }
+        },
+        "deploy": {
+          "builder": "@angular/fire:deploy",
+          "options": {
+            "prerender": false,
+            "ssr": false,
+            "browserTarget": "steam:build:production",
+            "firebaseProject": "steam-ecd27",
+            "firebaseHostingSite": "steam-ecd27"
+          }
         }
       }
     }

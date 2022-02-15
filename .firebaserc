@@ -1,0 +1,14 @@
+{
+  "targets": {
+    "steam-ecd27": {
+      "hosting": {
+        "steam": [
+          "steam-ecd27"
+        ]
+      }
+    }
+  },
+  "projects": {
+    "default": "steam-ecd27"
+  }
+}
