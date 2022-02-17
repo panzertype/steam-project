@@ -21,6 +21,7 @@ import { PageNotFoundComponent } from './page-not-found/page-not-found.component
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { GameComponent } from './game/game.component';
 import { FilterPipeModule } from 'ngx-filter-pipe';
+import { SortByPricePipe } from './sort-by-price.pipe';
 
 @NgModule({
   declarations: [
@@ -34,6 +35,7 @@ import { FilterPipeModule } from 'ngx-filter-pipe';
     NavbarComponent,
     PageNotFoundComponent,
     GameComponent,
+    SortByPricePipe,
   ],
   imports: [
     FormsModule,

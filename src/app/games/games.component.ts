@@ -27,7 +27,7 @@ import { Game } from '../game';
 export class GamesComponent {
   private itemsCollection: AngularFirestoreCollection<any>;
   items: Observable<any>;
-  searchInput: Game = { name: '', age: null, price: null };
+  searchInput: Game = { name: '', age: null, price: 1000 };
   constructor(private afs: AngularFirestore) {
     this.itemsCollection = afs.collection<any>('games');
     this.items = this.itemsCollection.valueChanges();

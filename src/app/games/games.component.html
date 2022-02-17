@@ -17,7 +17,12 @@
 <div class="row">
   <div class="col-sm-8 col-md-9 col-lg-10">
     <div
-      *ngFor="let item of items | async | filterBy: searchInput"
+      *ngFor="
+        let item of items
+          | async
+          | filterBy: searchInput.name
+          | sortByPrice: searchInput.price
+      "
       class="col-lg-5 col-xl-3 d-inline-block card p-0 m-3"
     >
       <!-- {{ searchInput | json }}
@@ -48,6 +53,7 @@
         min="0"
         max="1000"
       />
+      {{ searchInput.price }}
     </form>
     <h5>Filter by tag</h5>
     <form>
