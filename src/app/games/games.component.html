@@ -13,9 +13,9 @@
   </div>
 </div>
 
-<h2>Featured games</h2>
 <div class="row">
-  <div class="col-sm-8 col-md-9 col-lg-10">
+  <div class="col-12 order-2 order-sm-1 col-sm-8 col-md-9 col-lg-10">
+    <h2>Featured games</h2>
     <div
       *ngFor="
         let item of items
@@ -41,7 +41,9 @@
       </div>
     </div>
   </div>
-  <div class="col-sm-4 col-md-3 col-lg-2 border-start border-2">
+  <div
+    class="col-12 order-1 order-sm-2 col-sm-4 col-md-3 col-lg-2 border-start border-2"
+  >
     <h5>Filter by price</h5>
     <form>
       <input
