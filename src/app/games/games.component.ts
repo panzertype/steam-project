@@ -43,7 +43,7 @@ export class GamesComponent {
     this.items = this.itemsCollection.valueChanges();
   }
 
-  toggleFilter(filtersArr: any[], toggleableFilter: string) {
+  toggleFilter(toggleableFilter: string) {
     if (this.searchInput.genre.includes(toggleableFilter)) {
       this.searchInput.genre = this.searchInput.genre.filter(
         (el: string) => el !== toggleableFilter
