@@ -22,4 +22,6 @@ export class NavbarComponent implements OnInit {
     this.authService.logOut();
     this.router.navigate(['/login']);
   }
+
+  toggleMenu() {}
 }
