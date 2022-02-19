@@ -22,6 +22,8 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { GameComponent } from './game/game.component';
 import { FilterPipeModule } from 'ngx-filter-pipe';
 import { SortByPricePipe } from './sort-by-price.pipe';
+import { SortByNamePipe } from './sort-by-name.pipe';
+import { SortByGenrePipe } from './sort-by-genre.pipe';
 
 @NgModule({
   declarations: [
@@ -36,6 +38,8 @@ import { SortByPricePipe } from './sort-by-price.pipe';
     PageNotFoundComponent,
     GameComponent,
     SortByPricePipe,
+    SortByNamePipe,
+    SortByGenrePipe,
   ],
   imports: [
     FormsModule,

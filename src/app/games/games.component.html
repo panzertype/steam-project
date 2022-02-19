@@ -20,13 +20,12 @@
       *ngFor="
         let item of items
           | async
-          | filterBy: searchInput.name
-          | sortByPrice: searchInput.price
+          | sortByName: searchInput.name
+          | sortByPrice: searchInput.price:1000
+          | sortByGenre: searchInput.genre
       "
       class="col-lg-5 col-xl-3 d-inline-block card p-0 m-3"
     >
-      <!-- {{ searchInput | json }}
-    {{ item | json }} -->
       <div class="position-relative bg-secondary" style="height: 10rem">
         <div class="h3 position-absolute m-3">{{ item.name }}</div>
         <div class="h4 position-absolute m-3 bottom-0 end-0">
@@ -53,25 +52,45 @@
         min="0"
         max="1000"
       />
-      {{ searchInput.price }}
+      {{ searchInput.price === 1000 ? "Any" : searchInput.price }}
     </form>
     <h5>Filter by tag</h5>
     <form>
       <ul>
         <li>
-          <input type="checkbox" name="shooter" value="shooter" />
+          <input
+            (change)="toggleFilter(searchInput.genre, 'shooter')"
+            type="checkbox"
+            name="genre"
+            value="shooter"
+          />
           <label class="ms-2" for="shooter"> Shooter </label>
         </li>
         <li>
-          <input type="checkbox" name="moba" value="moba" />
+          <input
+            (change)="toggleFilter(searchInput.genre, 'moba')"
+            type="checkbox"
+            name="genre"
+            value="moba"
+          />
           <label class="ms-2" for="moba"> Moba </label>
         </li>
         <li>
-          <input type="checkbox" name="rpg" value="rpg" />
+          <input
+            (change)="toggleFilter(searchInput.genre, 'rpg')"
+            type="checkbox"
+            name="genre"
+            value="rpg"
+          />
           <label class="ms-2" or="rpg"> Rpg </label>
         </li>
         <li>
-          <input type="checkbox" name="soulsLike" value="soulsLike" />
+          <input
+            (change)="toggleFilter(searchInput.genre, 'soulsLike')"
+            type="checkbox"
+            name="genre"
+            value="soulsLike"
+          />
           <label class="ms-2" for="soulsLike"> Souls like </label>
         </li>
       </ul>
