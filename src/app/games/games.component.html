@@ -21,7 +21,7 @@
         let item of items
           | async
           | excludeItems: user?.library
-          | sortByName: searchInput.name
+          | sortByName: searchInput.name:'name'
           | sortByPrice: searchInput.price:1000
           | sortByGenre: searchInput.genre
       "

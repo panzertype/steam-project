@@ -16,7 +16,9 @@ export class UsersService {
         {
           username: username,
           email: email,
+          id: id,
           library: [],
+          friends: [],
         },
         { merge: true }
       )
@@ -35,6 +37,23 @@ export class UsersService {
         {
           username: username,
           email: email,
+        },
+        { merge: true }
+      )
+      .then(() => {
+        console.log('user saved successfully');
+      })
+      .catch((reason: any) => {
+        console.log('user was not saved', reason);
+      });
+  }
+
+  updateUserFriends(id: string, friends: any[]) {
+    return this.afs
+      .doc('/users/' + id)
+      .set(
+        {
+          friends: friends,
         },
         { merge: true }
       )

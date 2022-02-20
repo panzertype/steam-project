@@ -14,7 +14,7 @@
 </div>
 <div class="row">
   <div
-    *ngFor="let game of userGames | sortByName: searchInput.name"
+    *ngFor="let game of userGames | sortByName: searchInput.name:'name'"
     class="col-10 col-sm-5 col-xl-3 d-inline-block card p-0 m-3"
   >
     <div class="position-relative bg-secondary" style="height: 10rem">

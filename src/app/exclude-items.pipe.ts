@@ -4,7 +4,7 @@ import { Pipe, PipeTransform } from '@angular/core';
   name: 'excludeItems',
 })
 export class ExcludeItemsPipe implements PipeTransform {
-  transform(games: any[], filterQuery: any[], ...args: unknown[]) {
+  transform(games: any[], filterQuery: any[]) {
     if (games) {
       if (filterQuery?.length === 0) {
         return games;
