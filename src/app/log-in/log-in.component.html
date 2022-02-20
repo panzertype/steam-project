@@ -1,6 +1,6 @@
 <div class="container d-flex justify-content-center">
   <div class="card row col-lg-6 col-md-8 col-12 my-5">
-    <div class="card-header text-center h2">Log in</div>
+    <div class="card-header text-primary text-center h2">Log in</div>
     <div class="card-body">
       <form (ngSubmit)="onSubmit()" [formGroup]="logInForm">
         <div class="form-group mb-2">
@@ -25,31 +25,10 @@
           />
         </div>
 
-        <!-- <label for="username">Username</label>
-      <div class="input-group">
-        <div class="input-group-prepend">
-          <div class="input-group-text">@</div>
-        </div>
-        <input
-          type="text"
-          name="username"
-          class="form-control"
-          placeholder="Username"
-          formControlName="username"
-        />
-      </div>
-
-      <div class="form-check my-2">
-        <input type="checkbox" class="form-check-input" id="exampleCheck1" />
-        <label class="form-check-label" for="exampleCheck1"
-          >I agree with the policy</label
-        >
-      </div> -->
-
         <button
           type="submit"
           [disabled]="!logInForm.valid"
-          class="btn btn-primary"
+          class="btn text-light btn-primary"
         >
           Submit
         </button>
