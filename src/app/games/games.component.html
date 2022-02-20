@@ -20,6 +20,7 @@
       *ngFor="
         let item of items
           | async
+          | excludeItems: user.library
           | sortByName: searchInput.name
           | sortByPrice: searchInput.price:1000
           | sortByGenre: searchInput.genre
@@ -29,7 +30,7 @@
       <div class="position-relative bg-secondary" style="height: 10rem">
         <div class="h3 position-absolute m-3">{{ item.name }}</div>
         <div class="h4 position-absolute m-3 bottom-0 end-0">
-          {{ item.price }}
+          {{ item.price === 0 ? "Free" : item.price }}
         </div>
       </div>
       <div class="card-body">
@@ -37,7 +38,9 @@
           Some quick example text to build on the card title and make up the
           bulk of the card's content.
         </p>
-        <button class="btn text-light btn-primary">Add to library</button>
+        <button (click)="addToLibrary(item)" class="btn text-light btn-primary">
+          Add to library
+        </button>
       </div>
     </div>
   </div>

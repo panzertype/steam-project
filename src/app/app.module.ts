@@ -24,6 +24,7 @@ import { FilterPipeModule } from 'ngx-filter-pipe';
 import { SortByPricePipe } from './sort-by-price.pipe';
 import { SortByNamePipe } from './sort-by-name.pipe';
 import { SortByGenrePipe } from './sort-by-genre.pipe';
+import { ExcludeItemsPipe } from './exclude-items.pipe';
 
 @NgModule({
   declarations: [
@@ -40,6 +41,7 @@ import { SortByGenrePipe } from './sort-by-genre.pipe';
     SortByPricePipe,
     SortByNamePipe,
     SortByGenrePipe,
+    ExcludeItemsPipe,
   ],
   imports: [
     FormsModule,

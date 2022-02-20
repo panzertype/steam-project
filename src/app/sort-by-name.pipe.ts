@@ -5,7 +5,7 @@ import { Pipe, PipeTransform } from '@angular/core';
 })
 export class SortByNamePipe implements PipeTransform {
   transform(games: any[], searchQuery: any, ...args: unknown[]) {
-    if (games !== null) {
+    if (games !== null && searchQuery !== '') {
       return games.filter((game) =>
         game.name.toLowerCase().includes(searchQuery.toLowerCase())
       );

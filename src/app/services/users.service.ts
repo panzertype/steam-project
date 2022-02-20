@@ -27,6 +27,23 @@ export class UsersService {
       });
   }
 
+  updateUserLibrary(id: string, library: any[]) {
+    return this.afs
+      .doc('/users/' + id)
+      .set(
+        {
+          library: library,
+        },
+        { merge: true }
+      )
+      .then(() => {
+        console.log('user saved successfully');
+      })
+      .catch((reason: any) => {
+        console.log('user was not saved', reason);
+      });
+  }
+
   getUser(id: string): Observable<User> {
     return this.afs.doc('/users/' + id).valueChanges() as Observable<User>;
   }
