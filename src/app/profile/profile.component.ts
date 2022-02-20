@@ -23,9 +23,6 @@ export class ProfileComponent implements OnInit {
   });
 
   ngOnInit(): void {
-    // this.authService.getAuth().subscribe((user) => {
-    //   this.user = user;
-    // });
     this.authService.appUser$.subscribe((appUser) => {
       console.log(appUser);
       this.user = appUser;
@@ -36,7 +33,7 @@ export class ProfileComponent implements OnInit {
     const user: User = {
       ...this.changeProfileForm.value,
     };
-    this.updateUser(user.username, user.email);
+    this.updateUser(user?.username, user?.email);
   }
 
   updateUser(name?: string, email?: string) {

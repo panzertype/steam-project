@@ -39,15 +39,14 @@ export class SignUpComponent implements OnInit {
     };
 
     this.auth.register(newUser.email, newUser.password);
-    this.updateUser(newUser.username);
-    console.log(newUser.username);
+    this.createUser(newUser?.username);
   }
 
-  updateUser(name?: string) {
+  createUser(name?: string) {
     this.auth.getAuth().subscribe(
       (user) => {
         if (user) {
-          this.userService.updateUser(
+          this.userService.createUser(
             user.uid,
             user.email || '',
             user.displayName || name || ''

@@ -20,7 +20,7 @@
       *ngFor="
         let item of items
           | async
-          | excludeItems: user.library
+          | excludeItems: user?.library
           | sortByName: searchInput.name
           | sortByPrice: searchInput.price:1000
           | sortByGenre: searchInput.genre

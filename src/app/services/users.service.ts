@@ -9,6 +9,25 @@ import { User } from '../user';
 export class UsersService {
   constructor(private afs: AngularFirestore) {}
 
+  createUser(id: string, email: string, username: string) {
+    return this.afs
+      .doc('/users/' + id)
+      .set(
+        {
+          username: username,
+          email: email,
+          library: [],
+        },
+        { merge: true }
+      )
+      .then(() => {
+        console.log('user saved successfully');
+      })
+      .catch((reason: any) => {
+        console.log('user was not saved', reason);
+      });
+  }
+
   updateUser(id: string, email: string, username: string) {
     return this.afs
       .doc('/users/' + id)
