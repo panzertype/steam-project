@@ -19,7 +19,6 @@ import { SignUpComponent } from './sign-up/sign-up.component';
 import { NavbarComponent } from './navbar/navbar.component';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
-import { GameComponent } from './game/game.component';
 import { FilterPipeModule } from 'ngx-filter-pipe';
 import { SortByPricePipe } from './sort-by-price.pipe';
 import { SortByNamePipe } from './sort-by-name.pipe';
@@ -37,7 +36,6 @@ import { ExcludeItemsPipe } from './exclude-items.pipe';
     SignUpComponent,
     NavbarComponent,
     PageNotFoundComponent,
-    GameComponent,
     SortByPricePipe,
     SortByNamePipe,
     SortByGenrePipe,

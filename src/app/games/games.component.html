@@ -38,7 +38,18 @@
           Some quick example text to build on the card title and make up the
           bulk of the card's content.
         </p>
-        <button (click)="addToLibrary(item)" class="btn text-light btn-primary">
+        <button
+          *ngIf="user"
+          (click)="addToLibrary(item)"
+          class="btn text-light btn-primary"
+        >
+          Add to library
+        </button>
+        <button
+          *ngIf="!user"
+          routerLink="/login"
+          class="btn text-light btn-primary"
+        >
           Add to library
         </button>
       </div>
