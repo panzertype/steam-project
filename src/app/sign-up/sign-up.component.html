@@ -6,6 +6,20 @@
         <label for="username">Username</label>
         <div class="input-group mb-2">
           <input
+            [ngClass]="
+              (signUpForm.get('username')?.touched ||
+                signUpForm.get('username')?.dirty) &&
+              signUpForm.get('username')?.hasError('required')
+                ? 'is-invalid'
+                : ''
+                ? 'is-invalid'
+                : '' ||
+                  ((signUpForm.get('username')?.touched ||
+                    signUpForm.get('username')?.dirty) &&
+                    !signUpForm.get('username')?.invalid)
+                ? 'is-valid'
+                : ''
+            "
             type="text"
             name="username"
             class="form-control"
@@ -13,28 +27,65 @@
             formControlName="username"
           />
           <span class="input-group-text">@</span>
+          <div class="invalid-feedback">
+            {{
+              signUpForm.get("username")?.hasError("required")
+                ? "Username is required!"
+                : ""
+            }}'
+          </div>
         </div>
 
         <div class="form-group mb-2">
           <label for="email">Email address</label>
           <input
+            [ngClass]="
+              (signUpForm.get('email')?.touched ||
+                signUpForm.get('email')?.dirty) &&
+              signUpForm.get('email')?.hasError('email')
+                ? 'is-invalid'
+                : (signUpForm.get('email')?.touched ||
+                    signUpForm.get('email')?.dirty) &&
+                  !signUpForm.get('email')?.invalid
+                ? 'is-valid'
+                : ''
+            "
             type="email"
             name="email"
             class="form-control"
             placeholder="Enter email"
             formControlName="email"
           />
+          <div class="invalid-feedback">
+            {{ signUpForm.get("email")?.errors ? "Email is required!" : "" }}'
+          </div>
         </div>
 
         <div class="form-group mb-2">
           <label for="password">Password</label>
           <input
+            [ngClass]="
+              (signUpForm.get('password')?.touched ||
+                signUpForm.get('password')?.dirty) &&
+              signUpForm.get('password')?.hasError('minlength')
+                ? 'is-invalid'
+                : (signUpForm.get('password')?.touched ||
+                    signUpForm.get('password')?.dirty) &&
+                  !signUpForm.get('password')?.invalid
+                ? 'is-valid'
+                : ''
+            "
             type="password"
             name="password"
             class="form-control"
             placeholder="Password"
             formControlName="password"
           />
+          <div class="invalid-feedback">
+            {{
+              signUpForm.get("password")?.errors ? "Password is required!" : ""
+            }}'
+          </div>
           <small class="form-text text-muted"
             >Password must be at least 5 digits</small
           >
