@@ -11,12 +11,9 @@
                 signUpForm.get('username')?.dirty) &&
               signUpForm.get('username')?.hasError('required')
                 ? 'is-invalid'
-                : ''
-                ? 'is-invalid'
-                : '' ||
-                  ((signUpForm.get('username')?.touched ||
+                : (signUpForm.get('username')?.touched ||
                     signUpForm.get('username')?.dirty) &&
-                    !signUpForm.get('username')?.invalid)
+                  !signUpForm.get('username')?.invalid
                 ? 'is-valid'
                 : ''
             "
@@ -48,6 +45,9 @@
                     signUpForm.get('email')?.dirty) &&
                   !signUpForm.get('email')?.invalid
                 ? 'is-valid'
+                : signUpForm.get('email')?.hasError('required') &&
+                  signUpForm.get('email')?.touched
+                ? 'is-invalid'
                 : ''
             "
             type="email"
@@ -73,6 +73,9 @@
                     signUpForm.get('password')?.dirty) &&
                   !signUpForm.get('password')?.invalid
                 ? 'is-valid'
+                : signUpForm.get('password')?.hasError('required') &&
+                  signUpForm.get('password')?.touched
+                ? 'is-invalid'
                 : ''
             "
             type="password"
