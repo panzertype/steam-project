@@ -3,6 +3,7 @@ import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { AuthService } from '../../shared/services/auth.service';
 import { UsersService } from '../../shared/services/users.service';
 import { User } from '../../shared/interfaces/user';
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-profile',
@@ -11,6 +12,7 @@ import { User } from '../../shared/interfaces/user';
 })
 export class ProfileComponent implements OnInit {
   user: any = {};
+  appUser$?: Observable<any>;
 
   constructor(
     private authService: AuthService,
@@ -23,10 +25,12 @@ export class ProfileComponent implements OnInit {
   });
 
   ngOnInit(): void {
-    this.authService.appUser$.subscribe((appUser) => {
-      console.log(appUser);
-      this.user = appUser;
-    });
+    this.appUser$ = this.authService.appUser$;
+
+    // this.authService.appUser$.subscribe((appUser) => {
+    //   console.log(appUser);
+    //   this.user = appUser;
+    // });
   }
 
   onSubmit() {

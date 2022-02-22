@@ -8,7 +8,7 @@
           <input
             type="text"
             name="username"
-            value="{{ user?.username }}"
+            value="{{ (appUser$ | async)?.username }}"
             class="form-control"
             placeholder="Username"
             formControlName="username"
@@ -21,7 +21,7 @@
           <input
             type="email"
             name="email"
-            value="{{ user?.email }}"
+            value="{{ (appUser$ | async)?.email }}"
             class="form-control"
             placeholder="Enter email"
             formControlName="email"

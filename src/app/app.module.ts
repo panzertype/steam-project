@@ -19,7 +19,6 @@ import { SignUpComponent } from './components/sign-up/sign-up.component';
 import { NavbarComponent } from './components/navbar/navbar.component';
 import { PageNotFoundComponent } from './components/page-not-found/page-not-found.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
-import { FilterPipeModule } from 'ngx-filter-pipe';
 import { SortByPricePipe } from './shared/pipes/sort-by-price.pipe';
 import { SortByNamePipe } from './shared/pipes/sort-by-name.pipe';
 import { SortByGenrePipe } from './shared/pipes/sort-by-genre.pipe';
@@ -43,7 +42,6 @@ import { ExcludeItemsPipe } from './shared/pipes/exclude-items.pipe';
   ],
   imports: [
     FormsModule,
-    FilterPipeModule,
     ReactiveFormsModule,
     BrowserModule,
     AppRoutingModule,
