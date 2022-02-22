@@ -10,20 +10,20 @@ import { provideAuth, getAuth } from '@angular/fire/auth';
 import { provideDatabase, getDatabase } from '@angular/fire/database';
 import { provideFirestore, getFirestore } from '@angular/fire/firestore';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { GamesComponent } from './games/games.component';
-import { LibraryComponent } from './library/library.component';
-import { FriendsComponent } from './friends/friends.component';
-import { ProfileComponent } from './profile/profile.component';
-import { LogInComponent } from './log-in/log-in.component';
-import { SignUpComponent } from './sign-up/sign-up.component';
-import { NavbarComponent } from './navbar/navbar.component';
-import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
+import { GamesComponent } from './components/games/games.component';
+import { LibraryComponent } from './components/library/library.component';
+import { FriendsComponent } from './components/friends/friends.component';
+import { ProfileComponent } from './components/profile/profile.component';
+import { LogInComponent } from './components/log-in/log-in.component';
+import { SignUpComponent } from './components/sign-up/sign-up.component';
+import { NavbarComponent } from './components/navbar/navbar.component';
+import { PageNotFoundComponent } from './components/page-not-found/page-not-found.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { FilterPipeModule } from 'ngx-filter-pipe';
-import { SortByPricePipe } from './sort-by-price.pipe';
-import { SortByNamePipe } from './sort-by-name.pipe';
-import { SortByGenrePipe } from './sort-by-genre.pipe';
-import { ExcludeItemsPipe } from './exclude-items.pipe';
+import { SortByPricePipe } from './shared/pipes/sort-by-price.pipe';
+import { SortByNamePipe } from './shared/pipes/sort-by-name.pipe';
+import { SortByGenrePipe } from './shared/pipes/sort-by-genre.pipe';
+import { ExcludeItemsPipe } from './shared/pipes/exclude-items.pipe';
 
 @NgModule({
   declarations: [

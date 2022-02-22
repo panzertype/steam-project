@@ -5,8 +5,8 @@ import {
   FormGroup,
   Validators,
 } from '@angular/forms';
-import { User } from '../user';
-import { AuthService } from '../services/auth.service';
+import { User } from '../../shared/interfaces/user';
+import { AuthService } from '../../shared/services/auth.service';
 import { Router } from '@angular/router';
 
 @Component({

@@ -1,8 +1,7 @@
 import { Injectable } from '@angular/core';
 import { AngularFireAuth } from '@angular/fire/compat/auth';
-import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable, switchMap } from 'rxjs';
-import { User } from '../user';
+import { User } from '../../shared/interfaces/user';
 import { Router } from '@angular/router';
 import { map } from 'rxjs';
 import { UsersService } from './users.service';

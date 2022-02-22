@@ -5,9 +5,9 @@ import {
   FormGroup,
   Validators,
 } from '@angular/forms';
-import { User } from '../user';
-import { AuthService } from '../services/auth.service';
-import { UsersService } from '../services/users.service';
+import { User } from '../../shared/interfaces/user';
+import { AuthService } from '../../shared/services/auth.service';
+import { UsersService } from '../../shared/services/users.service';
 
 @Component({
   selector: 'app-sign-up',

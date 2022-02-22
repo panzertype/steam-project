@@ -1,13 +1,13 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { FriendsComponent } from './friends/friends.component';
-import { GamesComponent } from './games/games.component';
-import { AuthGuard } from './guards/auth.guard';
-import { LibraryComponent } from './library/library.component';
-import { LogInComponent } from './log-in/log-in.component';
-import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
-import { ProfileComponent } from './profile/profile.component';
-import { SignUpComponent } from './sign-up/sign-up.component';
+import { FriendsComponent } from './components/friends/friends.component';
+import { GamesComponent } from './components/games/games.component';
+import { AuthGuard } from './shared/guards/auth.guard';
+import { LibraryComponent } from './components/library/library.component';
+import { LogInComponent } from './components/log-in/log-in.component';
+import { PageNotFoundComponent } from './components/page-not-found/page-not-found.component';
+import { ProfileComponent } from './components/profile/profile.component';
+import { SignUpComponent } from './components/sign-up/sign-up.component';
 
 const routes: Routes = [
   { path: '', redirectTo: 'games', pathMatch: 'full' },

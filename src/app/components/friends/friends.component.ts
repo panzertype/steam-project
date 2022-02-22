@@ -4,8 +4,8 @@ import {
   AngularFirestoreCollection,
 } from '@angular/fire/compat/firestore';
 import { Observable } from 'rxjs';
-import { AuthService } from '../services/auth.service';
-import { UsersService } from '../services/users.service';
+import { AuthService } from '../../shared/services/auth.service';
+import { UsersService } from '../../shared/services/users.service';
 
 export interface SI {
   name: string;
