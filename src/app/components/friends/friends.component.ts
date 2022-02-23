@@ -37,16 +37,18 @@ export class FriendsComponent implements OnInit {
     this.authService.appUser$.subscribe((appUser) => {
       this.user = appUser;
 
-      for (let friendId of this.user.friends) {
-        this.getUserFriend(friendId).subscribe((res) => {
-          if (!this.userFriends.some(exists)) {
-            return this.userFriends.push(res);
-          }
+      if (this.user && this.user.friends) {
+        for (let friendId of this.user.friends) {
+          this.getUserFriend(friendId).subscribe((res) => {
+            if (!this.userFriends.some(exists)) {
+              return this.userFriends.push(res);
+            }
 
-          function exists(element: any) {
-            return element.id === res.id;
-          }
-        });
+            function exists(element: any) {
+              return element.id === res.id;
+            }
+          });
+        }
       }
     });
   }
@@ -63,7 +65,7 @@ export class FriendsComponent implements OnInit {
       this.user.friends.push(item.id);
       this.authService.getAuth().subscribe(
         (user: any) => {
-          if (user) {
+          if (user && this.user.friends) {
             this.userService.updateUserFriends(user.uid, this.user.friends);
           }
         },

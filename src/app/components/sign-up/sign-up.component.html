@@ -9,7 +9,7 @@
             [ngClass]="
               (signUpForm.get('username')?.touched ||
                 signUpForm.get('username')?.dirty) &&
-              signUpForm.get('username')?.hasError('required')
+              signUpForm.get('username')?.errors
                 ? 'is-invalid'
                 : (signUpForm.get('username')?.touched ||
                     signUpForm.get('username')?.dirty) &&
