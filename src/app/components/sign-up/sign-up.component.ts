@@ -8,6 +8,7 @@ import {
 import { User } from '../../shared/interfaces/user';
 import { AuthService } from '../../shared/services/auth.service';
 import { UsersService } from '../../shared/services/users.service';
+import Validation from '../../shared/validators/matches.validators';
 
 @Component({
   selector: 'app-sign-up',
@@ -15,17 +16,23 @@ import { UsersService } from '../../shared/services/users.service';
   styleUrls: ['./sign-up.component.scss'],
 })
 export class SignUpComponent implements OnInit {
-  signUpForm = new FormGroup({
-    email: new FormControl('', [Validators.required, Validators.email]),
-    password: new FormControl('', [
-      Validators.required,
-      Validators.minLength(5),
-    ]),
-    username: new FormControl('', [
-      Validators.required,
-      Validators.pattern('[a-zA-Z0-9]'),
-    ]),
-  });
+  signUpForm = new FormGroup(
+    {
+      email: new FormControl('', [Validators.required, Validators.email]),
+      password: new FormControl('', [
+        Validators.required,
+        Validators.minLength(6),
+      ]),
+      confirmPassword: new FormControl('', [Validators.required]),
+      username: new FormControl('', [
+        Validators.required,
+        Validators.pattern('[a-zA-Z0-9]+'),
+      ]),
+    },
+    {
+      validators: [Validation.match('password', 'confirmPassword')],
+    }
+  );
   users: User[] = [];
 
   constructor(
