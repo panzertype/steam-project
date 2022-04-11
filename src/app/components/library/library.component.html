@@ -1,0 +1,31 @@
+<h2>Library</h2>
+
+<div class="input-group mb-3">
+  <input
+    type="text"
+    class="form-control"
+    placeholder="Search games"
+    aria-label="Search games"
+    [(ngModel)]="searchInput.name"
+  />
+  <div class="input-group-append">
+    <button class="btn text-light btn-primary" type="button">Search</button>
+  </div>
+</div>
+<div class="row">
+  <div
+    *ngFor="let game of userGames | sortByName: searchInput.name:'name'"
+    class="col-10 col-sm-5 col-xl-3 d-inline-block card p-0 m-3"
+  >
+    <div class="position-relative bg-secondary" style="height: 10rem">
+      <div class="h3 position-absolute m-3">{{ game.name }}</div>
+    </div>
+    <div class="card-body">
+      <p class="card-text">
+        Some quick example text to build on the card title and make up the bulk
+        of the card's content.
+      </p>
+      <button class="btn text-light btn-primary">Download</button>
+    </div>
+  </div>
+</div>

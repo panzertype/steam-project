@@ -1,0 +1,45 @@
+<h2>Friends</h2>
+
+<div class="input-group mb-3">
+  <input
+    type="text"
+    class="form-control"
+    placeholder="Search friends"
+    aria-label="Search friends"
+    [(ngModel)]="searchInput.name"
+  />
+  <div class="input-group-append">
+    <button class="btn text-light btn-primary" type="button">Search</button>
+  </div>
+</div>
+<div
+  *ngFor="let item of userFriends | sortByName: searchInput.name:'username'"
+  class="shadow d-flex rounded justify-content-between p-2 m-2"
+>
+  <div class="align-self-center">{{ item.username }}</div>
+  <button
+    (click)="removeFriend(item)"
+    class="btn btn-danger text-light align-self-center"
+  >
+    Remove friend
+  </button>
+</div>
+
+<div
+  *ngFor="
+    let item of items
+      | async
+      | excludeItems: user?.id
+      | excludeItems: user?.friends
+      | sortByName: searchInput.name:'username'
+  "
+  class="shadow d-flex rounded justify-content-between p-2 m-2"
+>
+  <div class="align-self-center">{{ item.username }}</div>
+  <button
+    (click)="addFriend(item)"
+    class="btn btn-primary text-light align-self-center"
+  >
+    Add friend
+  </button>
+</div>

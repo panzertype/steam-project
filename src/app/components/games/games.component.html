@@ -1,0 +1,119 @@
+<h2>Games</h2>
+
+<div class="input-group mb-3">
+  <input
+    type="text"
+    class="form-control"
+    placeholder="Search games"
+    aria-label="Search games"
+    [(ngModel)]="searchInput.name"
+  />
+  <div class="input-group-append">
+    <button class="btn text-light btn-primary" type="button">Search</button>
+  </div>
+</div>
+
+<div class="row">
+  <div class="col-12 order-2 order-sm-1 col-sm-8 col-md-9 col-lg-10">
+    <h2>Featured games</h2>
+    <div
+      *ngFor="
+        let item of items
+          | async
+          | excludeItems: user?.library
+          | sortByName: searchInput.name:'name'
+          | sortByPrice: searchInput.price:1000
+          | sortByGenre: searchInput.genre
+      "
+      class="col-lg-5 col-xl-3 d-inline-block card p-0 m-3"
+    >
+      <div class="position-relative bg-secondary" style="height: 10rem">
+        <div class="h3 position-absolute m-3">{{ item.name }}</div>
+        <div class="h4 position-absolute m-3 bottom-0 end-0">
+          {{ item.price === 0 ? "Free" : item.price }}
+        </div>
+      </div>
+      <div class="card-body">
+        <p class="card-text">
+          Some quick example text to build on the card title and make up the
+          bulk of the card's content.
+        </p>
+        <button
+          *ngIf="user"
+          (click)="addToLibrary(item)"
+          class="btn text-light btn-primary"
+        >
+          Add to library
+        </button>
+        <button
+          *ngIf="!user"
+          routerLink="/login"
+          class="btn text-light btn-primary"
+        >
+          Add to library
+        </button>
+      </div>
+    </div>
+  </div>
+  <div
+    class="col-12 order-1 order-sm-2 col-sm-4 col-md-3 col-lg-2 border-start border-2"
+  >
+    <h5>Filter by price</h5>
+    <form>
+      <input
+        type="range"
+        [(ngModel)]="searchInput.price"
+        name="priceRange"
+        step="100"
+        min="0"
+        max="1000"
+      />
+      {{ searchInput.price === 1000 ? "Any" : searchInput.price }}
+    </form>
+    <h5>Filter by tag</h5>
+    <form>
+      <ul>
+        <li>
+          <input
+            (change)="toggleFilter('shooter')"
+            class="form-check-input"
+            type="checkbox"
+            name="genre"
+            value="shooter"
+          />
+          <label class="ms-2" for="shooter"> Shooter </label>
+        </li>
+        <li>
+          <input
+            (change)="toggleFilter('moba')"
+            class="form-check-input"
+            type="checkbox"
+            name="genre"
+            value="moba"
+          />
+          <label class="ms-2" for="moba"> Moba </label>
+        </li>
+        <li>
+          <input
+            (change)="toggleFilter('rpg')"
+            class="form-check-input"
+            type="checkbox"
+            name="genre"
+            value="rpg"
+          />
+          <label class="ms-2" or="rpg"> Rpg </label>
+        </li>
+        <li>
+          <input
+            (change)="toggleFilter('soulsLike')"
+            class="form-check-input"
+            type="checkbox"
+            name="genre"
+            value="soulsLike"
+          />
+          <label class="ms-2" for="soulsLike"> Souls like </label>
+        </li>
+      </ul>
+    </form>
+  </div>
+</div>

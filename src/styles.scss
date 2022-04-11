@@ -1,0 +1,20 @@
+/* You can add global styles to this file, and also import other style files */
+$primary: #6c69ff;
+$secondary: #bdbcff;
+$danger: #ff6f6f;
+
+a {
+  transition: all 0.32s ease !important;
+}
+
+a:hover {
+  transform: translate(5px);
+  color: $primary !important;
+}
+
+ul {
+  list-style: none;
+}
+
+/* Importing Bootstrap SCSS file. */
+@import "~bootstrap/scss/bootstrap";

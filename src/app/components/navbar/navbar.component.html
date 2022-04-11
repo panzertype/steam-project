@@ -1,0 +1,57 @@
+<nav class="shadow mb-5 navbar navbar-expand-md navbar-light bg-light">
+  <div class="container">
+    <a class="navbar-brand" href="#">
+      <img src="../../assets/logo.svg" width="50px" alt="" />
+    </a>
+    <button
+      (click)="menu.classList.toggle('show')"
+      class="navbar-toggler btn-primary"
+      type="button"
+    >
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" #menu>
+      <ul class="navbar-nav me-auto">
+        <li>
+          <a class="nav-link active" routerLink="/games">Games</a>
+        </li>
+        <li>
+          <a *ngIf="user" class="nav-link active" routerLink="/library"
+            >Library</a
+          >
+        </li>
+        <li>
+          <a *ngIf="user" class="nav-link active" routerLink="/friends"
+            >Friends</a
+          >
+        </li>
+        <li>
+          <a *ngIf="user" class="nav-link active" routerLink="/profile"
+            >Profile</a
+          >
+        </li>
+      </ul>
+      <ul class="navbar-nav ms-auto">
+        <li>
+          <a *ngIf="!user" class="nav-link active" routerLink="/signup"
+            >Sign up</a
+          >
+        </li>
+        <li>
+          <a *ngIf="!user" class="nav-link active" routerLink="/login"
+            >Log in</a
+          >
+        </li>
+        <li>
+          <a
+            *ngIf="user"
+            (click)="logOut()"
+            role="button"
+            class="nav-link active"
+            >Log out</a
+          >
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
